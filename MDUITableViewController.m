@@ -32,24 +32,39 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 3;   
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    if(section == 0) {
+        return 2;
+    } else if (section == 1) {
+        return 1;
+    } else {
+        return 3;
+    }
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    if(indexPath.section == 0) {
+        cell.textLabel.text = @"I m in section 0";
+        cell.textColor = [UIColor redColor];
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = @"another section";
+        cell.textColor = [UIColor blueColor];
+    } else {
+        cell.textLabel.text = [NSString stringWithFormat:@"cell %li", (long) indexPath.row];
+        cell.textColor = [UIColor yellowColor];
+    }
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
